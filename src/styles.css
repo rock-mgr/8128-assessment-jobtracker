@@ -1,0 +1,54 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f4f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+a { color: #365fd6; }
+.app-shell { min-height: 100vh; }
+.site-header { background: rgba(255, 255, 255, .94); border-bottom: 1px solid #e8ebf2; }
+.navbar-brand { text-decoration: none; }
+.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; color: #fff; background: #365fd6; border-radius: 10px; font-weight: 800; }
+.brand-name { color: #172033; font-weight: 750; letter-spacing: -.03em; }
+.nav-link { color: #586174; font-size: .94rem; }
+.nav-link:hover { color: #365fd6; }
+.app-main { max-width: 1180px; }
+.eyebrow { color: #64708a; font-size: .72rem; font-weight: 750; letter-spacing: .12em; }
+.display-title { color: #172033; font-size: clamp(1.8rem, 3vw, 2.45rem); font-weight: 750; letter-spacing: -.045em; }
+.summary-card, .application-card, .filter-panel, .form-panel, .empty-state { border-radius: 16px; box-shadow: 0 8px 30px rgba(29, 43, 76, .045); }
+.summary-blue { background: #edf3ff; }
+.summary-violet { background: #f2efff; }
+.summary-green { background: #eaf8f1; }
+.summary-label { color: #66718a; font-size: .9rem; }
+.summary-value { color: #172033; font-size: 2rem; font-weight: 750; letter-spacing: -.04em; }
+.summary-note, .application-meta { color: #68738a; font-size: .85rem; }
+.application-note { color: #768096; font-size: .84rem; line-height: 1.45; }
+.company-name { color: #66718a; font-size: .88rem; font-weight: 600; }
+.application-card { transition: transform .15s ease, box-shadow .15s ease; }
+.application-card:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(29, 43, 76, .09); }
+.status-badge { display: inline-block; border-radius: 999px; padding: .35rem .6rem; font-size: .72rem; font-weight: 700; white-space: nowrap; }
+.status-applied { background: #edf3ff; color: #365fd6; }
+.status-interview { background: #f2efff; color: #7051b5; }
+.status-offer { background: #eaf8f1; color: #218153; }
+.status-rejected { background: #fff0ef; color: #bd5148; }
+.meta-label { display: inline-block; min-width: 65px; color: #99a1b1; }
+.form-page { max-width: 760px; }
+.form-label { color: #384258; font-size: .9rem; font-weight: 650; }
+.form-control, .form-select { border-color: #dfe4ed; border-radius: 9px; padding: .7rem .8rem; }
+.form-control:focus, .form-select:focus { border-color: #809bfa; box-shadow: 0 0 0 .2rem rgba(54, 95, 214, .12); }
+.empty-state { background: #fff; color: #64708a; }
+
+@media (max-width: 575.98px) {
+  .navbar { padding-left: .25rem; padding-right: .25rem; }
+  .nav-link { padding-left: .35rem; padding-right: .35rem; font-size: .84rem; }
+  .brand-name { font-size: .95rem; }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "app-1001",
+    "company": "Northstar Digital",
+    "jobTitle": "Software QA Engineer",
+    "status": "Interview",
+    "dateApplied": "2026-11-18",
+    "location": "Singapore",
+    "notes": "Technical interview scheduled."
+  },
+  {
+    "id": "app-1002",
+    "company": "Harbour Systems",
+    "jobTitle": "Frontend Developer",
+    "status": "Applied",
+    "dateApplied": "2026-11-14",
+    "location": "Outram, Singapore",
+    "notes": "Applied through the company careers page."
+  },
+  {
+    "id": "app-1003",
+    "company": "BrightPath Solutions",
+    "jobTitle": "QA Team Lead",
+    "status": "Offer",
+    "dateApplied": "2026-11-10",
+    "location": "Singapore",
+    "notes": "Offer received; reviewing the details."
+  },
+  {
+    "id": "app-1004",
+    "company": "Evergreen Apps",
+    "jobTitle": "Software Tester",
+    "status": "Rejected",
+    "dateApplied": "2026-11-06",
+    "location": "Remote",
+    "notes": "Received an update from the recruiter."
+  }
+]
