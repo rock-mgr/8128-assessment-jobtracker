@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Switch } from 'wouter';
-import { useAtom } from 'jotai';
-import { applicationsAtom } from './state/applicationsAtom.js';
 import Navbar from './components/Navbar.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import ApplicationsPage from './pages/ApplicationsPage.jsx';
 import ApplicationFormPage from './pages/ApplicationFormPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
-function ApplicationDataLoader({ children }) {
-  const [, setApplications] = useAtom(applicationsAtom);
+export default function App() {
+  const [applications, setApplications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -19,10 +17,11 @@ function ApplicationDataLoader({ children }) {
       .get('/data/applications.json')
       .then((response) => {
         setApplications(response.data);
-        setIsLoading(false);
       })
       .catch(() => {
         setErrorMessage('The sample applications could not be loaded.');
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   }, [setApplications]);
@@ -35,26 +34,42 @@ function ApplicationDataLoader({ children }) {
     return <main className="container py-5 alert alert-danger">{errorMessage}</main>;
   }
 
-  return children;
-}
-
-export default function App() {
   return (
-    <ApplicationDataLoader>
-      <div className="app-shell">
-        <Navbar />
-        <main className="container app-main py-4 py-lg-5">
-          <Switch>
-            <Route path="/" component={DashboardPage} />
-            <Route path="/applications" component={ApplicationsPage} />
-            <Route path="/applications/new" component={ApplicationFormPage} />
-            <Route path="/applications/:id/edit">
-              {(params) => <ApplicationFormPage applicationId={params.id} />}
-            </Route>
-            <Route component={NotFoundPage} />
-          </Switch>
-        </main>
-      </div>
-    </ApplicationDataLoader>
+    <div className="app-shell">
+      <Navbar />
+      <main className="container app-main py-4 py-lg-5">
+        <Switch>
+          <Route path="/">
+            {() => <DashboardPage applications={applications} />}
+          </Route>
+          <Route path="/applications">
+            {() => (
+              <ApplicationsPage
+                applications={applications}
+                setApplications={setApplications}
+              />
+            )}
+          </Route>
+          <Route path="/applications/new">
+            {() => (
+              <ApplicationFormPage
+                applications={applications}
+                setApplications={setApplications}
+              />
+            )}
+          </Route>
+          <Route path="/applications/:id/edit">
+            {(params) => (
+              <ApplicationFormPage
+                applicationId={params.id}
+                applications={applications}
+                setApplications={setApplications}
+              />
+            )}
+          </Route>
+          <Route component={NotFoundPage} />
+        </Switch>
+      </main>
+    </div>
   );
 }

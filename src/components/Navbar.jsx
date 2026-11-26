@@ -2,7 +2,7 @@ import { Link } from 'wouter';
 
 export default function Navbar() {
   return (
-    <header className="site-header">
+    <header className="site-header sticky-top">
       <nav className="container navbar navbar-expand navbar-light py-3">
         <Link href="/" className="navbar-brand d-flex align-items-center gap-2">
           <span className="brand-mark">J</span>

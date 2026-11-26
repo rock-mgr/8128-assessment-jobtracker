@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { useAtom } from 'jotai';
 import { Link, useLocation } from 'wouter';
-import { applicationsAtom } from '../state/applicationsAtom.js';
 
 const blankApplication = {
   company: '',
@@ -12,8 +10,7 @@ const blankApplication = {
   notes: '',
 };
 
-export default function ApplicationFormPage({ applicationId }) {
-  const [applications, setApplications] = useAtom(applicationsAtom);
+export default function ApplicationFormPage({ applicationId, applications, setApplications }) {
   const [, setLocation] = useLocation();
   const existingApplication = applications.find((application) => application.id === applicationId);
   const isEditing = Boolean(applicationId);

@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import { useAtom } from 'jotai';
 import { Link } from 'wouter';
 import ApplicationCard from '../components/ApplicationCard.jsx';
-import { applicationsAtom } from '../state/applicationsAtom.js';
 
-export default function ApplicationsPage() {
-  const [applications, setApplications] = useAtom(applicationsAtom);
+export default function ApplicationsPage({ applications, setApplications }) {
   const [searchText, setSearchText] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('All');
 

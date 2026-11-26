@@ -1,11 +1,8 @@
-import { useAtomValue } from 'jotai';
 import { Link } from 'wouter';
 import ApplicationCard from '../components/ApplicationCard.jsx';
 import SummaryCard from '../components/SummaryCard.jsx';
-import { applicationsAtom } from '../state/applicationsAtom.js';
 
-export default function DashboardPage() {
-  const applications = useAtomValue(applicationsAtom);
+export default function DashboardPage({ applications }) {
   const activeCount = applications.filter((application) =>
     ['Applied', 'Interview'].includes(application.status),
   ).length;
@@ -52,7 +49,7 @@ export default function DashboardPage() {
           <div className="row g-3">
             {latestApplications.map((application) => (
               <div className="col-12 col-lg-4" key={application.id}>
-                <ApplicationCard application={application} onDelete={() => {}} />
+                <ApplicationCard application={application} />
               </div>
             ))}
           </div>
